@@ -21,13 +21,13 @@ namespace WpfApp1
         public string fernando { get; set; }
         public string lastName { get; set; }
         public string secondLastName { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime? birthDate { get; set; }
         public string email { get; set; }
         public decimal pricing { get; set; }
         public string brand { get; set; }
         public string model { get; set; }
         public string color { get; set; }
-        public DateTime soldAt { get; set; }
+        public DateTime? soldAt { get; set; }
         public long presaleId { get; set; }
         public int branchId { get; set; }
         public string externalId { get; set; }
@@ -76,13 +76,13 @@ namespace WpfApp1
                 name = txtName.Text,
                 lastName = txtApPaterno.Text,
                 secondLastName = txtApMaterno.Text,
-                birthDate = DateTime.Parse(calDateBirth.Text),
+                birthDate = Helpers.GetDate(calDateBirth.Text),
                 email = txtEmail.Text,
                 pricing=decimal.Parse(txtPricing.Text),
                 brand=txtBrand.Text,
                 model=txtModel.Text,
                 color=txtColor.Text,
-                soldAt=DateTime.Parse(calSoldAt.Text)
+                soldAt= Helpers.GetDate(calSoldAt.Text)
             };
             new BBL().SendRequest(request);
         }

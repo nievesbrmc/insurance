@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       xml:lang="es-mx"
       Title="quotations">
+   
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,27 +23,57 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.ColumnSpan="2" Margin="50,0,50,0" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="554" Background="CadetBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Cotización de póliza</Label>
-        <Label Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Nombre</Label>
-        <TextBox Grid.Row="1" Grid.Column="0" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtName"/>
-        <Label Grid.Column="0" Grid.Row="2" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Ap. Paterno</Label>
-        <TextBox Grid.Column="0" Grid.Row="2" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtApPaterno"></TextBox>
-        <Label Grid.Column="0" Grid.Row="3" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Ap. Materno</Label>
-        <TextBox Grid.Column="0" Grid.Row="3" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtApMaterno"></TextBox>
-        <Label Grid.Column="0" Grid.Row="4" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" >Fecha Nacimiento</Label>
-        <DatePicker Grid.Column="0" Grid.Row="4" Height="22" Width="250" Margin="133,22,17,20" x:Name="calDateBirth" Loaded="calDateBirth_Loaded" />
-        <Label Grid.Column="0" Grid.Row="5" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Correo</Label>
-        <TextBox Grid.Column="0" Grid.Row="5" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtEmail"></TextBox>
-        <Label Grid.Column="1" Grid.Row="1" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Precio</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtPricing"/>
-        <Label Grid.Column="1" Grid.Row="2" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Marca</Label>
-        <TextBox Grid.Column="1" Grid.Row="2" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtBrand"></TextBox>
-        <Label Grid.Column="1" Grid.Row="3" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Modelo</Label>
-        <TextBox Grid.Column="1" Grid.Row="3" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtModel"></TextBox>
-        <Label Grid.Column="1" Grid.Row="4" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18" HorizontalAlignment="Right">Color</Label>
-        <TextBox Grid.Column="1" Grid.Row="4" Height="22" Width="250" Margin="133,22,17,20" x:Name="txtColor"></TextBox>
-        <Label Grid.Column="1" Grid.Row="5" FontSize="16" FontWeight="Bold" Height="30" Width="145" Margin="-3,17,313,18">Fecha de compra</Label>
-        <DatePicker Grid.Row="5" Grid.Column="1" Height="22" Width="250" Margin="133,22,17,20" x:Name="calSoldAt"/>
-        <Button Grid.Column="1" Grid.Row="6" Margin="207,19,47,0" Height="34" FontWeight="Bold"  VerticalAlignment="Top" Background="CadetBlue" Click="Button_Click">Enviar</Button>
+        <Label Grid.ColumnSpan="2" Margin="50,0,50,0" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="554" Background="{StaticResource Title}" Foreground="{StaticResource Text}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Cotización de póliza</Label>
+        <TextBlock Margin="5,0,50,0" Grid.Column="0" Grid.Row="1" Style="{StaticResource carritoItemNombre}">
+            Nombre
+        </TextBlock>        
+        <TextBox Grid.Row="1" Grid.Column="0" x:Name="txtName"/>
+
+        <TextBlock Margin="40,0,50,0" Grid.Column="0" Grid.Row="2" Style="{StaticResource carritoItemNombre}">
+            Ap. Paterno
+        </TextBlock>
+        <TextBox Grid.Column="0" Grid.Row="2" x:Name="txtApPaterno"></TextBox>
+
+        <TextBlock Margin="50,0,50,0" Grid.Column="0" Grid.Row="3" Style="{StaticResource carritoItemNombre}">
+            Ap. Materno
+        </TextBlock>
+        <TextBox Grid.Column="0" Grid.Row="3" x:Name="txtApMaterno"></TextBox>
+
+        <TextBlock Margin="100,0,50,0" Grid.Column="0" Grid.Row="4" Style="{StaticResource carritoItemNombre}">
+            Fecha Nacimiento
+        </TextBlock>
+        <DatePicker Grid.Column="0" Grid.Row="4" x:Name="calDateBirth" Loaded="calDateBirth_Loaded" />
+
+        <TextBlock Margin="-15,0,50,0" Grid.Column="0" Grid.Row="5" Style="{StaticResource carritoItemNombre}">
+            Correo
+        </TextBlock>
+        <TextBox Grid.Column="0" Grid.Row="5" x:Name="txtEmail"></TextBox>
+
+        <TextBlock Margin="-15,0,50,0" Grid.Column="1" Grid.Row="1" Style="{StaticResource carritoItemNombre}">
+            Precio
+        </TextBlock>        
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPricing"/>
+
+        <TextBlock Margin="-15,0,50,0" Grid.Column="1" Grid.Row="2" Style="{StaticResource carritoItemNombre}">
+            Marca
+        </TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtBrand"></TextBox>
+
+        <TextBlock Margin="-2,0,50,0" Grid.Column="1" Grid.Row="3" Style="{StaticResource carritoItemNombre}">
+            Modelo
+        </TextBlock>        
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtModel"></TextBox>
+
+        <TextBlock Margin="-20,0,50,0" Grid.Column="4" Grid.Row="4" Style="{StaticResource carritoItemNombre}">
+            Color
+        </TextBlock>        
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtColor"></TextBox>
+
+        <TextBlock Margin="95,0,50,0" Grid.Column="4" Grid.Row="5" Style="{StaticResource carritoItemNombre}">
+            Fecha de compra
+        </TextBlock>        
+        <DatePicker Grid.Row="5" Grid.Column="1" x:Name="calSoldAt"/>
+
+        <Button Grid.Column="1" Grid.Row="6" Style="{StaticResource btnCoppelPrimary}" Click="Button_Click">Enviar</Button>
     </Grid>
 </Page>
