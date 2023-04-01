@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="" Height="640" Width="1099" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center">
     <Grid>
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="87*"/>
             <ColumnDefinition Width="58*"/>
@@ -15,6 +16,6 @@
             <ColumnDefinition Width="54*"/>
             <ColumnDefinition Width="48*"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="mainFrame" Source="quotations.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
+        <Frame x:Name="mainFrame" Source="Sales.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
     </Grid>
 </Window>

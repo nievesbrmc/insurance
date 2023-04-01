@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.SalesWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Venta de póliza" Height="640" Width="1099" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Póliza" Background="AliceBlue" >
+                <Frame x:Name="mainFrameSales" Source="Sales.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
+            </TabItem>
+            <TabItem Header="Contratante">
+                <Frame x:Name="mainFrameContractor" Source="policyData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
+            </TabItem>
+            <TabItem Header="Datos Teléfono">
+                <Frame x:Name="mainFrameMobile" Source="MobileData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
+            </TabItem>
+            <TabItem Header="Pago">
+                <Frame x:Name="mainFramePayment" Source="MobileData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

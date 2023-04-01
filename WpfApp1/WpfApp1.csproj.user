@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddressData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MobileData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PaymentData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PoliciesByClient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="policyData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ProductContainer.xaml.cs">
@@ -16,18 +28,42 @@
     <Compile Update="quotations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Sales.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SalesWindows.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddressData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MobileData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PaymentData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PoliciesByClient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="policyData.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProductContainer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="quotations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Sales.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SalesWindows.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
