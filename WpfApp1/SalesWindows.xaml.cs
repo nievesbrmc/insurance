@@ -19,14 +19,14 @@ namespace WpfApp1
     /// </summary>
     public partial class SalesWindows : Window
     {
-        public bool sales { get; set; } = false;
-        public bool policy { get; set; } = false;
-        public bool mobile { get; set; } = false;
-        public bool payment { get; set; } = false;
-        
         public SalesWindows()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -2,13 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfApp1"
-             StartupUri="SalesWindows.xaml">
+             StartupUri="SalesWindows.xaml"
+             xml:lang="es-mx">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Brushes.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Controls.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ComboBoxStyle.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+
+    

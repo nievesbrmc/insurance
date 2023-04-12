@@ -39,6 +39,9 @@
     <Page Update="AddressData.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

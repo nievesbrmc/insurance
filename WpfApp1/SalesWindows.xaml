@@ -4,22 +4,70 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xml:lang="es-mx"
         mc:Ignorable="d"
-        Title="Venta de póliza" Height="640" Width="1099" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center">
-    <Grid>
-        <TabControl>
-            <TabItem Header="Póliza" Background="AliceBlue" >
-                <Frame x:Name="mainFrameSales" Source="Sales.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
-            </TabItem>
-            <TabItem Header="Contratante">
-                <Frame x:Name="mainFrameContractor" Source="policyData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
-            </TabItem>
-            <TabItem Header="Datos Teléfono">
-                <Frame x:Name="mainFrameMobile" Source="MobileData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
-            </TabItem>
-            <TabItem Header="Pago">
-                <Frame x:Name="mainFramePayment" Source="MobileData.xaml" Grid.ColumnSpan="6" Margin="0,0,0,-14"/>
-            </TabItem>
-        </TabControl>
+        Title="" Height="640" Width="1099" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center">
+
+    <Grid x:Name="GeneralInformation" Visibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
+            <Label Content="1 Información General" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="ExtraBlack"></Label>
+            <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="2 Información de Contacto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="3 Información de Producto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="15,0,0,0">
+            <Label Content="Información General para la póliza" Foreground="Black" FontFamily="Arial" FontSize="30" FontWeight="UltraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal" Height="30" Margin="18,0,0,0">
+            <Label Content="Verifica y completa la información del cliente" Foreground="DarkBlue" FontFamily="Arial" FontSize="20" FontWeight="Bold"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Nombre Completo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Apellido paterno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Apellido materno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Fecha de nacimiento" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Margin="-200,25,5,0"></DatePicker>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Sexo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" Height="44" Width="274" Margin="-50,25,5,0">
+                <ComboBoxItem>Femenino</ComboBoxItem>
+                <ComboBoxItem>Masculino</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="RFC" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" Margin="-50,25,5,0"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="5" Grid.RowSpan="4"  Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Button Content="Validar" Style="{StaticResource ResourceKey=RoundButton}" Click="Button_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>

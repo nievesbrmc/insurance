@@ -26,7 +26,7 @@
         <TextBlock Margin="5,0,50,0" Grid.Column="0" Grid.Row="1" Style="{StaticResource carritoItemNombre}">
             Nombre
         </TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="0" x:Name="txtName"/>
+        <TextBox Grid.Row="1" Grid.Column="0" x:Name="txtName" />
 
         <TextBlock Margin="95,0,50,0" Grid.Column="0" Grid.Row="2" Style="{StaticResource carritoItemNombre}">
             Segundo nombre
