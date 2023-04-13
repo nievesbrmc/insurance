@@ -13,5 +13,10 @@ namespace WpfApp1
             DateTime date = DateTime.ParseExact(request, "dd/MM/yyyy", null);
             return date;
         }
+
+        public static bool yearsOldValidate(DateTime? yearsOld)
+        {
+            return yearsOld?.AddYears(18) > DateTime.Today;
+        }
     }
 }

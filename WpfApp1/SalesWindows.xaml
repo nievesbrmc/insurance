@@ -8,7 +8,9 @@
         mc:Ignorable="d"
         Title="" Height="640" Width="1099" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center">
 
-    <Grid x:Name="GeneralInformation" Visibility="Visible">
+    <Grid>
+        
+        <Grid x:Name="GeneralInformation" Visibility="Visible">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -27,9 +29,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
             <Label Content="1 Información General" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="ExtraBlack"></Label>
-            <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
             <Label Content="2 Información de Contacto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
-            <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="--------------------"  Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
             <Label Content="3 Información de Producto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="15,0,0,0">
@@ -40,22 +42,22 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
             <Label Content="Nombre Completo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
-            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="FullName"></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
             <Label Content="Apellido paterno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
-            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="LastName"></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
             <Label Content="Apellido materno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
-            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}"></TextBox>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="SecondLastName"></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
             <Label Content="Fecha de nacimiento" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
-            <DatePicker Style="{StaticResource DatePickerStyle}" Margin="-200,25,5,0"></DatePicker>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Margin="-200,25,5,0" x:Name="DateOfBorn"></DatePicker>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
-            <Label Content="Sexo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <Label Content="Sexo" Style="{StaticResource ResourceKey=LabelStyle}" x:Name="Gender"></Label>
             <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" Height="44" Width="274" Margin="-50,25,5,0">
                 <ComboBoxItem>Femenino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
@@ -63,11 +65,188 @@
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
             <Label Content="RFC" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
-            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" Margin="-50,25,5,0"></TextBox>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" Margin="-50,25,5,0" x:Name="RFC"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3"  Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label x:Name="lblGeneralInformationErrors" Content="Revise los siguienes errores" Style="{StaticResource ResourceKey=LabelStyle}" Visibility="Hidden"></Label>
         </StackPanel>
 
         <StackPanel Grid.Column="3" Grid.Row="5" Grid.RowSpan="4"  Style="{StaticResource ResourceKey=StackPanelStyle}">
-            <Button Content="Validar" Style="{StaticResource ResourceKey=RoundButton}" Click="Button_Click"></Button>
+            <Button x:Name="btnGeneralInformation" Content="Validar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnGeneralInformation_Click"></Button>
         </StackPanel>
+        </Grid>
+        
+        <Grid x:Name="AddressInformation" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Label Content="1 Información General" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="ExtraBlack"></Label>
+
+                <Label Content="--------------------" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="2 Información de Contacto" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+
+                <Label Content="--------------------"  Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="3 Información de Producto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="15,0,0,0">
+                <Label Content="Domicilio" Foreground="Black" FontFamily="Arial" FontSize="30" FontWeight="UltraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Label Content="Código postal" Style="{StaticResource ResourceKey=LabelStyle}" Margin="-5,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="ZipCode" Margin="-140,25,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="700" Margin="-120,0,0,0">
+                <Label Content="Calle" Style="{StaticResource ResourceKey=LabelStyle}" Margin="20,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Street" Margin="-50,25,0,0" Width="650"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Label Content="Número exterior" Style="{StaticResource ResourceKey=LabelStyle}" Margin="-5,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="NumExt" Margin="-160,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="-100,0,0,0">
+                <Label Content="Número Interior" Style="{StaticResource ResourceKey=LabelStyle}" Margin="-5,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="NumInt" Margin="-160,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="-200,0,0,0" Width="400">
+                <Label Content="Colonia" Style="{StaticResource ResourceKey=LabelStyle}" Margin="30,-50,0,0"></Label>
+                <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" x:Name="Neighborhood" Height="44" Width="345" Margin="-75,25,5,0">
+                    <ComboBoxItem>Femenino</ComboBoxItem>
+                    <ComboBoxItem>Masculino</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Label Content="Estado" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="State" Margin="-75,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="-110,0,0,0">
+                <Label Content="Ciudad" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="City" Margin="-75,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="-130,0,0,0" Width="400">
+                <Label Content="Municipio" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Municipio" Margin="-95,26,0,0" Width="345"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="15,0,0,0">
+                <Label Content="Información de contacto" Foreground="Black" FontFamily="Arial" FontSize="30" FontWeight="UltraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="6" Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Label Content="Teléfono casa / celular" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Phone" Margin="-215,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="6" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="-110,0,0,0">
+                <Label Content="Correo" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Mail" Margin="-75,26,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="130,0,0,0" >
+                <Button x:Name="btnReturn" Content="Regresar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnReturn_Click" Margin="12,0,0,0" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"></Button>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="7"  Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Button x:Name="btnContactInformation" Content="Continuar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnContactInformation_Click"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="ProductInformation" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Label Content="1 Información General" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="ExtraBlack"></Label>
+
+                <Label Content="--------------------" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="2 Información de Contacto" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+
+                <Label Content="--------------------"  Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+                <Label Content="3 Información de Producto" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="50,0,0,0">
+                <Label Content="Información del celular" Foreground="Black" FontFamily="Arial" FontSize="30" FontWeight="UltraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Marca" Style="{StaticResource ResourceKey=LabelStyle}" Margin="45,-50,0,0"></Label>
+                <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" x:Name="Branch" Height="44" Width="300" Margin="-65,26,0,0">
+                    <ComboBoxItem>Samsung</ComboBoxItem>
+                    <ComboBoxItem>Apple</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Modelo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+                <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" x:Name="Model" Height="44" Width="300" Margin="-75,26,0,0">
+                    <ComboBoxItem>Samsung</ComboBoxItem>
+                    <ComboBoxItem>Apple</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Color" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Color" Margin="-55,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="IMEI" Style="{StaticResource ResourceKey=LabelStyle}" Margin="45,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Imei" Margin="-45,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Número de Serie" Style="{StaticResource ResourceKey=LabelStyle}" Margin="20,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Serie" Margin="-165,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Precio" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Ammount" Margin="-65,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Tamaño de pantalla" Style="{StaticResource ResourceKey=LabelStyle}" Margin="45,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Screen" Margin="-190,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Año" Style="{StaticResource ResourceKey=LabelStyle}" Margin="20,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Year" Margin="-40,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="RAM" Style="{StaticResource ResourceKey=LabelStyle}" Margin="0,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Ram" Margin="-55,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="5" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="Almacenamiento" Style="{StaticResource ResourceKey=LabelStyle}" Margin="45,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Storage" Margin="-165,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="5" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="350">
+                <Label Content="CPU" Style="{StaticResource ResourceKey=LabelStyle}" Margin="20,-50,0,0"></Label>
+                <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="Cpu" Margin="-50,26,0,0" Width="300"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="130,0,0,0" >
+                <Button x:Name="btnReturn1" Content="Regresar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnReturn1_Click" Margin="12,0,0,0" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"></Button>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="6"  Style="{StaticResource ResourceKey=StackPanelStyle}">
+                <Button x:Name="btnSendData" Content="Continuar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnSendData_Click"></Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
