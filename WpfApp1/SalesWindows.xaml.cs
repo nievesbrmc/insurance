@@ -23,6 +23,7 @@ namespace WpfApp1
         bool IsCash { get; set; } = false;
         public SalesWindows()
         {
+            InitializeComponent();
             if (IsClient  || !IsCash)
             {
                 EnabledisableGeneralInformation(false);
@@ -34,8 +35,6 @@ namespace WpfApp1
             {
                 //precargar información
             }
-
-            InitializeComponent();
         }
 
         private void EnabledisableMobileData(bool isEnable)
@@ -53,6 +52,7 @@ namespace WpfApp1
 
         private void EnabledisableGeneralInformation(bool isEnable)
         {
+            //FullName = new TextBox();
             enableDisableControl(FullName, isEnable);
             enableDisableControl(LastName, isEnable);
             enableDisableControl(SecondLastName, isEnable);
@@ -103,19 +103,26 @@ namespace WpfApp1
             }
             else
             {
-                //valida los campos
-                DateTime? dateOfBorn = Helpers.GetDate(DateOfBorn.Text);
-                if (!dateOfBorn.HasValue | !Helpers.yearsOldValidate(dateOfBorn))
-                {
-                    hideShowLabelError(lblGeneralInformationErrors, Visibility.Visible, "El cliente no puede realizar la compra del seguro por que es menor de edad.");
-                }
+                //if (string.IsNullOrEmpty(DateOfBorn.Text))
+                //{
+                //    hideShowLabelError(lblGeneralInformationErrors, Visibility.Visible, "Debe ingresar el campo fecha de nacimiento.");
+                //    return;
+                //}
+                ////valida los campos
+                //DateTime? dateOfBorn = Helpers.GetDate(DateOfBorn.Text);
+                //if (!dateOfBorn.HasValue & !Helpers.yearsOldValidate(dateOfBorn))
+                //{
+                //    hideShowLabelError(lblGeneralInformationErrors, Visibility.Visible, "El cliente no puede realizar la compra del seguro por que es menor de edad.");
+                //}
                 hideShowGrid(GeneralInformation, Visibility.Hidden);
+                hideShowGrid(AddressInformation, Visibility.Visible);
             }
         }
 
         private void btnContactInformation_Click(object sender, RoutedEventArgs e)
         {
-            hideShowGrid(GeneralInformation, Visibility.Hidden);
+            hideShowGrid(AddressInformation, Visibility.Hidden);
+            hideShowGrid(ProductInformation, Visibility.Visible);
         }
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)

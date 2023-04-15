@@ -10,13 +10,21 @@ namespace WpfApp1
     {
         public static DateTime? GetDate(string request)
         {
-            DateTime date = DateTime.ParseExact(request, "dd/MM/yyyy", null);
-            return date;
+            if (!string.IsNullOrEmpty(request))
+            {
+                DateTime date = DateTime.ParseExact(request, "dd/MM/yyyy", null);
+                return date;
+            }
+            return default;
         }
 
         public static bool yearsOldValidate(DateTime? yearsOld)
         {
-            return yearsOld?.AddYears(18) > DateTime.Today;
+            DateTime? old = yearsOld;
+            DateTime? now = DateTime.Today.AddYears(-18);
+            bool response = old > now;
+            return response;
+            
         }
     }
 }
