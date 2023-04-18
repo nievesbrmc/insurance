@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for AddressData.xaml
+    /// Interaction logic for NotClientCoppel.xaml
     /// </summary>
-    public partial class AddressData : Page
+    public partial class NotClientCoppel : Page
     {
-        public AddressData()
+        public NotClientCoppel()
         {
             InitializeComponent();
         }
 
-        private void btnNextMobileData_Click(object sender, RoutedEventArgs e)
+        private void btnFindClient_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate("MobileData.xml");
+            //avanzar a los datos del telefono
+        }
+
+        private void btnReturn1_Click(object sender, RoutedEventArgs e)
+        {
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new FindClientCoppel());
         }
     }
 }

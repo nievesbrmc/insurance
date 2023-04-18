@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for PaymentData.xaml
+    /// Interaction logic for ClientCoppelData.xaml
     /// </summary>
-    public partial class PaymentData : Page
+    public partial class ClientCoppelData : Page
     {
-        public PaymentData()
+        public ClientCoppelData()
         {
             InitializeComponent();
         }
 
-        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        private void btnReturn1_Click(object sender, RoutedEventArgs e)
         {
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new FindClientCoppel());
+        }
 
+        private void btnFindClient_Click(object sender, RoutedEventArgs e)
+        {
+            //pantalla para buscar el teléfono
         }
     }
 }

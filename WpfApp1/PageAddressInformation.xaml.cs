@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for policyData.xaml
+    /// Interaction logic for AddressInformation.xaml
     /// </summary>
-    public partial class policyData : Page
+    public partial class PageAddressInformation : Page
     {
-        public policyData()
+        public PageAddressInformation()
         {
             InitializeComponent();
         }
-
-        private void btnNextAddress_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-       
     }
 }

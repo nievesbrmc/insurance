@@ -7,28 +7,31 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddressData.xaml.cs">
+    <Compile Update="ClientCoppelData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MobileData.xaml.cs">
+    <Compile Update="CoppelWindows.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PaymentData.xaml.cs">
+    <Compile Update="FindClientCoppel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PoliciesByClient.xaml.cs">
+    <Compile Update="IsCoppelClient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="policyData.xaml.cs">
+    <Compile Update="NotClientCoppel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageAddressInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageGeneralInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageProductInformation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ProductContainer.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="quotations.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Sales.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SalesWindows.xaml.cs">
@@ -36,7 +39,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddressData.xaml">
+    <Page Update="CheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ClientCoppelData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CoppelWindows.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FindClientCoppel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IsCoppelClient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NotClientCoppel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageAddressInformation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ComboBoxStyle.xaml">
@@ -45,25 +66,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MobileData.xaml">
+    <Page Update="PageGeneralInformation.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PaymentData.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="PoliciesByClient.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="policyData.xaml">
+    <Page Update="PageProductInformation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProductContainer.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="quotations.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Sales.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SalesWindows.xaml">

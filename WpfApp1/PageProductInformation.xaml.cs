@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for MobileData.xaml
+    /// Interaction logic for PageProductInformation.xaml
     /// </summary>
-    public partial class MobileData : Page
+    public partial class PageProductInformation : Page
     {
-        public MobileData()
+        public PageProductInformation()
         {
             InitializeComponent();
-        }
-
-        private void btnNextPayment_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

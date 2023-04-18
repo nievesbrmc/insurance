@@ -159,6 +159,7 @@
                 <Button x:Name="btnContactInformation" Content="Continuar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnContactInformation_Click"></Button>
             </StackPanel>
         </Grid>
+        
         <Grid x:Name="ProductInformation" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>

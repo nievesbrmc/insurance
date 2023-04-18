@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for Sales.xaml
+    /// Interaction logic for PageGeneralInformation.xaml
     /// </summary>
-    public partial class Sales : Page
+    public partial class PageGeneralInformation : Page
     {
-        public Sales()
+        public PageGeneralInformation()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }

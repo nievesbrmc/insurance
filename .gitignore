@@ -5,3 +5,4 @@
 /.vs
 /WpfApp1/bin/Debug/net6.0-windows
 /WpfApp1/obj
+/WpfApp1/bin/Release/net6.0-windows
