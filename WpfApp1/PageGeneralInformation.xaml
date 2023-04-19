@@ -5,10 +5,72 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="640" d:DesignWidth="1099"
       Title="PageGeneralInformation">
+    <Grid x:Name="GeneralInformation" Visibility="Visible" Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
+            <Label Content="1 Información General" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" FontWeight="ExtraBlack"></Label>
+            <Label Content="--------------------" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="2 Información de Contacto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="--------------------"  Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+            <Label Content="3 Información de Producto" Foreground="CadetBlue" FontFamily="Arial" FontSize="15" FontWeight="Bold"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Height="50" Margin="15,0,0,0">
+            <Label Content="Información General para la póliza" Foreground="Black" FontFamily="Arial" FontSize="30" FontWeight="UltraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal" Height="30" Margin="18,0,0,0">
+            <Label Content="Verifica y completa la información del cliente" Foreground="DarkBlue" FontFamily="Arial" FontSize="20" FontWeight="Bold"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Nombre Completo" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="FullName"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Apellido paterno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="LastName"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Apellido materno" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="SecondLastName"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Fecha de nacimiento" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Margin="-200,25,5,0" x:Name="DateOfBorn"></DatePicker>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="Sexo" Style="{StaticResource ResourceKey=LabelStyle}" x:Name="Gender"></Label>
+            <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" Height="44" Width="274" Margin="-50,25,5,0">
+                <ComboBoxItem>Femenino</ComboBoxItem>
+                <ComboBoxItem>Masculino</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="4" Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label Content="RFC" Style="{StaticResource ResourceKey=LabelStyle}"></Label>
+            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" Margin="-50,25,5,0" x:Name="RFC"></TextBox>
+        </StackPanel>
 
-    <Grid>
-        
+        <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3"  Style="{StaticResource ResourceKey=StackPanelStyle}">
+            <Label x:Name="lblGeneralInformationErrors" Content="Revise los siguienes errores" Style="{StaticResource ResourceKey=LabelStyle}" Visibility="Hidden"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="0,0,220,0" Width="Auto">
+            <Button x:Name="btnReturn" Content="Cancelar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnReturn_Click" Margin="0,0,0,0" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="Auto" Margin="100,0,0,0">
+            <Button x:Name="btnGeneralInformation" Content="Validar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnGeneralInformation_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

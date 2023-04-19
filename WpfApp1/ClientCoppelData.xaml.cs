@@ -27,12 +27,12 @@ namespace WpfApp1
 
         private void btnReturn1_Click(object sender, RoutedEventArgs e)
         {
-            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new FindClientCoppel());
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new IsCoppelClient());
         }
 
-        private void btnFindClient_Click(object sender, RoutedEventArgs e)
+        private void btnFindPhone_Click(object sender, RoutedEventArgs e)
         {
-            //pantalla para buscar el teléfono
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new FindPhoneToSale());
         }
     }
 }

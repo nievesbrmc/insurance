@@ -64,7 +64,7 @@
             <Button Height="33" x:Name="btnReturn1" Content="Cancelar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnReturn1_Click" Margin="12,0,0,0" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"></Button>
         </StackPanel>
         <StackPanel  Grid.Column="2" Grid.Row="5" Style="{StaticResource ResourceKey=StackPanelStyle}">
-            <Button Height="35" x:Name="btnFindClient" Content="Continuar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnFindClient_Click"></Button>
+            <Button Height="35" x:Name="btnFindPhone" Content="Continuar" Style="{StaticResource ResourceKey=RoundButton}" Click="btnFindPhone_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

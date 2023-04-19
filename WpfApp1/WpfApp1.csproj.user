@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ClientCoppelData.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="CoppelWindows.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="FindClientCoppel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FindPhoneToSale.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="IsCoppelClient.xaml.cs">
@@ -34,21 +34,18 @@
     <Compile Update="ProductContainer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SalesWindows.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CheckBoxStyle.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ClientCoppelData.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CoppelWindows.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="FindClientCoppel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FindPhoneToSale.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IsCoppelClient.xaml">
@@ -73,9 +70,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProductContainer.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SalesWindows.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

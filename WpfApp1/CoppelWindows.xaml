@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Coppel" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Coppel" Height="640" Width="1099" Loaded="Window_Loaded">
     <Grid>
         <DockPanel>
-            <Frame x:Name="FrameCoppelParent"></Frame>
+            <Frame x:Name="FrameCoppelParent" NavigationUIVisibility="Hidden"></Frame>
         </DockPanel>
     </Grid>
 </Window>
