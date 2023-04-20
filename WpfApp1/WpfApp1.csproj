@@ -16,11 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RawPrint" Version="0.5.0" />
     <PackageReference Include="System.Management" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="configurations.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Image\casco.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,24 @@ namespace WpfApp1
             bool response = old > now;
             return response;
             
+        }
+        public static Entity.GeneralConfigurations GetConfigurations()
+        {
+            string path = GetFile("configurations.json");
+            Entity.GeneralConfigurations items = new Entity.GeneralConfigurations();
+            using (StreamReader r = new StreamReader(path))
+            {
+                string json = r.ReadToEnd();
+                items = JsonConvert.DeserializeObject<Entity.GeneralConfigurations>(json);
+                items.QuotationsList = 3;
+            }
+            return items;
+        }
+        public static string GetFile(string nameFile)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string pathFull = path + nameFile;
+            return pathFull;
         }
     }
 }

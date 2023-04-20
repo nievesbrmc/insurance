@@ -17,7 +17,7 @@ namespace WpfApp1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             App.ParentCoppelWindows = this;
-            this.FrameCoppelParent.Navigate(new IsCoppelClient());
+            this.FrameCoppelParent.Navigate(new QuotationsPage(null));
         }
     }
 }

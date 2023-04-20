@@ -34,6 +34,9 @@
     <Compile Update="ProductContainer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="QuotationsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CheckBoxStyle.xaml">
@@ -70,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProductContainer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="QuotationsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
