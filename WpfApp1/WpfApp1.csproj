@@ -30,6 +30,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Image\ok.png">
+	<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
     <None Update="Image\Apple-iPhonee.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
