@@ -1,0 +1,155 @@
+﻿<Page x:Class="WpfApp1.PageSale"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="999"
+      Title="PageSale">
+
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Orientation="Horizontal" Height="40" HorizontalAlignment="Center" Margin="0,-10,0,0">
+            <Label Content="Cobro de productos" Foreground="DarkBlue" FontFamily="Arial" FontSize="30" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Cliente: " Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            <Label Content="Hilario Martinez Trejo" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+            <Label Content="RFC: " Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            <Label Content="XXXXXXXXXXX" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Orientation="Horizontal">
+            <Label Content="Dirección: " Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            <Label Content="Rolando mota pacheco 420, azcapotzalco 45330 cdmx" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal">
+            <Label Content="Teléfono: " Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            <Label Content="5576651883" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal">
+            <Label Content="Correo: " Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            <Label Content="rolandomota@patito.com" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+        </StackPanel>
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="700"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+                <Border BorderThickness="2" Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0" Width="995" Margin="0,0,38,0">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Border.BorderBrush>
+                </Border>
+                <Border BorderThickness="2" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Width="995" Margin="0,0,38,0">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Border.BorderBrush>
+                </Border>
+                <Border BorderThickness="2" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="0" Width="995" Margin="0,0,38,0">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Border.BorderBrush>
+                </Border>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                        <Label Content="No Registro" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+                    </StackPanel>
+                
+                <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Content="001" Foreground="DarkBlue" HorizontalAlignment="Center" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <Label Content="002" Foreground="DarkBlue" HorizontalAlignment="Center" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Label Content="Cantidad" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Label Content="001" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <Label Content="001" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <Label Content="Descripción" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Label Content="Teléfono iphone blanco, Almacenamiento 128 gb, IMEI: 12345797859483493" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="2">
+                <Label Content="Seguro de teléfono a 12 meses cobertura amplia" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="3">
+                <Label Content="Precio Uniario" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="3">
+                <Label Content="$30536" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="3">
+                <Label Content="$3826" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right">
+                <Label Content="Sub total" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch">
+                <Label Content="$28,925.00" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right">
+                <Label Content="IVA" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch">
+                <Label Content="$5,497.92" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right">
+                <Label Content="Total" Foreground="Black" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch">
+                <Label Content="$34,362.00" Foreground="DarkBlue" FontFamily="Arial" FontSize="10" FontWeight="ExtraBlack"></Label>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label Content="Forma de pago" Foreground="DarkBlue" FontFamily="Arial" FontSize="15" Height="30" FontWeight="ExtraBlack" Margin="0,0,0,35"></Label>
+            <ComboBox Style="{StaticResource ResourceKey=RoundComboBox}" Height="44" Width="274" Margin="-130,25,5,0">
+                <ComboBoxItem>Crédito coppel</ComboBoxItem>
+                <ComboBoxItem>Tarjeta Crédito Visa/MasterCard</ComboBoxItem>
+                <ComboBoxItem>Tarjeta Débito Visa/MasterCard</ComboBoxItem>
+                <ComboBoxItem>CODI</ComboBoxItem>
+                <ComboBoxItem>Efectivo</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="0,0,220,0" Width="Auto">
+            <Button x:Name="btnReturn" Content="Cancelar" Style="{StaticResource ResourceKey=RoundButton}" Margin="0,0,0,0" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="8" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="Auto" Margin="300,0,0,0">
+            <Button x:Name="btnGeneralInformation" Content="Pagar" Style="{StaticResource ResourceKey=RoundButton}" ></Button>
+        </StackPanel>
+    </Grid>
+</Page>
