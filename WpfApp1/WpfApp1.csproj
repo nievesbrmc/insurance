@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="RawPrint" Version="0.5.0" />
     <PackageReference Include="System.Management" Version="7.0.0" />
   </ItemGroup>
@@ -29,6 +30,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Image\ok.png">
+    <None Update="Image\Apple-iPhonee.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

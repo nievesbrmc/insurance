@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Coppel" Height="640" Width="1099" Loaded="Window_Loaded">
+   
     <Grid>
         <DockPanel>
             <Frame x:Name="FrameCoppelParent" NavigationUIVisibility="Hidden"></Frame>

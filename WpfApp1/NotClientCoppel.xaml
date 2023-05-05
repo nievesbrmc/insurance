@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="NotClientCoppel">
-
+    <Page.DataContext>
+        <local:NotClientCoppel/>
+    </Page.DataContext>
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -28,7 +30,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="250">
             <Label Content="Nombre" Style="{StaticResource ResourceKey=LabelStyle}" FontSize="15"></Label>
-            <TextBox Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="txtName" Height="40" Width="230" Margin="-70,10,0,0"></TextBox>
+            <TextBox Text="{Binding Name, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ResourceKey= errorTemplate}" Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="txtName" Height="40" Width="230" Margin="-70,10,0,0"></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="250">
             <Label Content="Apellido paterno" Style="{StaticResource ResourceKey=LabelStyle}" FontSize="15"></Label>
