@@ -10,13 +10,22 @@
     <Compile Update="CoppelWindows.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="endorsement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="FindClientCoppel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="FindPhoneToSale.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ImagePreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IsCoppelClient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewEndorsement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="NotClientCoppel.xaml.cs">
@@ -48,13 +57,22 @@
     <Page Update="CoppelWindows.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="endorsement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="FindClientCoppel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="FindPhoneToSale.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ImagePreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IsCoppelClient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewEndorsement.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NotClientCoppel.xaml">

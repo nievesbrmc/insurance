@@ -29,6 +29,9 @@
     <None Update="Image\casco.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Image\helper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Image\ok.png">
 	<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
