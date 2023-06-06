@@ -28,7 +28,12 @@ namespace WpfApp1
             InitializeComponent();
             fillPolicy();
             fillDocuments();
-            
+            NameClient.Content = "Cliente: " + getNameClient(clientId);
+        }
+
+        private static string getNameClient(string clientId)
+        {
+            return "Yair Lopez";
         }
 
         public void fillDocuments()
