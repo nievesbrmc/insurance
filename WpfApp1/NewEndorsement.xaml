@@ -106,7 +106,7 @@
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
                                                         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Height="Auto" Width="Auto" Margin="5">
-                                                            <CheckBox Content="{Binding DocumentDescription}">
+                                                            <CheckBox Content="{Binding DocumentDescription}" x:Name="ck0">
                                                                 <CheckBox.ToolTip>
                                                                     <ToolTip Placement="Bottom">
                                                                         <ToolTip.Template>

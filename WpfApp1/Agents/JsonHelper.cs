@@ -4,6 +4,9 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http.Json;
+using RestSharp;
+using System.Text.Json.Nodes;
+using System.Text.Json;
 
 namespace WpfApp1.Agents
 {
@@ -11,7 +14,18 @@ namespace WpfApp1.Agents
     {
         private const int TIMEOUT = 5;
         public enum JsonVerb { Select, Insert, Update, Delete }
-        
+        public static object get(Uri url, string token)
+        {
+            var client = new RestClient(url);
+            var request = new RestRequest(url, Method.Get);
+            request.AddHeader("Authorization", "Bearer "+token);
+            //request.AddHeader("My-Custom-Header", "foobar");
+            var response = client.ExecuteGet(request);
+
+            // deserialize json string response to JsonNode object
+            var data = JsonSerializer.Deserialize<JsonNode>(response.Content!)!;
+            return data;
+        }
         /// <summary>
         /// Controller to send a request 
         /// </summary>
@@ -21,9 +35,9 @@ namespace WpfApp1.Agents
         /// <param name="content">Object to send at service</param>
         /// <param name="userVersionHeader">Indicate if the request use version header</param>
         /// <returns>Response from service</returns>
-        public static async Task<HttpResponseMessage> JsonController(Uri urlWebApi, string path, JsonVerb verJson, HttpContent content, bool userVersionHeader)
+        public static async Task<HttpResponseMessage> JsonController(string token, Uri urlWebApi, string path, JsonVerb verJson, HttpContent content, bool userVersionHeader)
         {
-            return await jsonHelperCoreAsync(urlWebApi, path, verJson, content, userVersionHeader).ConfigureAwait(false);
+            return await jsonHelperCoreAsync(token,urlWebApi, path, verJson, content, userVersionHeader).ConfigureAwait(false);
         }
         
         /// <summary>
@@ -35,7 +49,7 @@ namespace WpfApp1.Agents
         /// <param name="httpContent">content to send service</param>
         /// <param name="userVersionHeader">indicate if the service use a version header</param>
         /// <returns>Result of the process</returns>
-        private static async Task<HttpResponseMessage> jsonHelperCoreAsync(Uri urlWebApi, string path, JsonVerb verbJson, HttpContent httpContent, bool useVersionHeader)
+        private static async Task<HttpResponseMessage> jsonHelperCoreAsync(string token, Uri urlWebApi, string path, JsonVerb verbJson, HttpContent httpContent, bool useVersionHeader)
          {
             if (!string.IsNullOrEmpty(path))
             {
@@ -45,6 +59,7 @@ namespace WpfApp1.Agents
             using (var client = new HttpClient())
             {
                 //client.BaseAddress = urlWebApi;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 client.Timeout = TimeSpan.FromMinutes(5);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

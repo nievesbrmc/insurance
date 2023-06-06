@@ -59,29 +59,30 @@ namespace WpfApp1
         private void btnAddEndoso_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.DefaultExt = ".jpg"; // Required file extension 
+            fileDialog.DefaultExt = ".jpg";
             fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
           "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-          "Portable Network Graphic (*.png)|*.png"; // Optional file extensions
+          "Portable Network Graphic (*.png)|*.png";
 
-            fileDialog.ShowDialog();
+            var hasFile = fileDialog.ShowDialog();
 
-            if (fileDialog.ShowDialog().HasValue && fileDialog.ShowDialog().Value)
+            if (hasFile.HasValue && hasFile.Value)
             {
                 BitmapImage  image = new BitmapImage(new Uri(fileDialog.FileName));
                 string  fullPath = fileDialog.FileName;
-                string[] partsFileName = fullPath.Split('\\');
+
+                System.IO.FileInfo file = new System.IO.FileInfo(fullPath);
+                string newFile = file.Name;
+                newFile = Helpers.GetFile(newFile);
+                file.CopyTo(newFile,true);
+                byte[] fileArray = Helpers.ConvertFileToArray(newFile);
                 Window ImagePreview = new ImagePreview(image);
                 ImagePreview.WindowStartupLocation = WindowStartupLocation.Manual;
                 ImagePreview.Left = 0;
                 ImagePreview.Top = 0;
                 ImagePreview.Topmost = true;
                 ImagePreview.Show();
-
-               
-               // imgPhoto.Source = new BitmapImage(new Uri(fileDialog.FileName));
             }
-
         }
     }
 }

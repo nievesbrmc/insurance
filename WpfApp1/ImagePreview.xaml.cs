@@ -25,5 +25,15 @@ namespace WpfApp1
 
             ImageUpload.Source = path;
         }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRepeat_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

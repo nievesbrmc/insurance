@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,17 @@ namespace WpfApp1.BLL
 {
     public class EndorsementProcess
     {
-        private async Task<string> Gettoken()
+        private string Gettoken()
         {
 
-            var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "oauth-authorization-api.us-e2.cloudhub.io/token");
-            request.Headers.Add("client_id", "services-exp");
-            request.Headers.Add("client_secret", "services-exp123");
-            request.Headers.Add("grant_type", "CLIENT_CREDENTIALS");
-            var response = await client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-            string result = await response.Content.ReadAsStringAsync();
+            var client = new RestClient();
+            var request = new RestRequest("oauth-authorization-api.us-e2.cloudhub.io/token", Method.Post);
+            request.AddHeader("client_id", "services-exp");
+            request.AddHeader("client_secret", "services-exp123");
+            request.AddHeader("grant_type", "CLIENT_CREDENTIALS");
+            var response = client.Execute(request);
+            string result = response.Content;
+            Console.WriteLine(response.Content);
             return result;
         }
         public async Task<IEnumerable<Entity.DocumentType>> GetDocumentList()
@@ -95,11 +96,12 @@ namespace WpfApp1.BLL
         private async Task<Entity.EndorsementList> getEndorsment()
         {
             Entity.EndorsementList endorsementList = new Entity.EndorsementList();
-            //string token = await Gettoken();
-            Uri api = new Uri("https://service-coppel-pisys-inter-exp-api.us-e2.cloudhub.io/api/catalogo/:utilidad");
+            string token = "Tg4KyuMv9Szqj0RMZoadMPFNEXq_IkVSSflt5zxuizys3SqF2lC5hXAoYvEqBwggOXRKkI-hpI5a-CPWPnnTqg";//Gettoken();
+            Uri api = new Uri("https://service-coppel-pisys-inter-exp-api.us-e2.cloudhub.io/api/catalogo/endoso");
             try
             {
-                HttpResponseMessage response = await Agents.JsonHelper.JsonController(api, string.Empty, Agents.JsonHelper.JsonVerb.Select, null, true).ConfigureAwait(false);
+                //var data1 = Agents.JsonHelper.get(api, token);
+                HttpResponseMessage response = await Agents.JsonHelper.JsonController(token,api, string.Empty, Agents.JsonHelper.JsonVerb.Select, null, !true).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode & response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var data = response.Content.ReadAsStringAsync();

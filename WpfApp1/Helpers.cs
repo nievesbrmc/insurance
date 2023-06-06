@@ -46,5 +46,19 @@ namespace WpfApp1
             string pathFull = path + nameFile;
             return pathFull;
         }
+
+        public static byte[] ConvertFileToArray(string pathOfFile)
+        {
+            byte[] response = null;
+            if (!string.IsNullOrEmpty(pathOfFile))
+            {
+                string pathFile = (pathOfFile);
+                if (File.Exists(pathFile))
+                {
+                    response = File.ReadAllBytes(pathFile);
+                }
+            }
+            return response;
+        }
     }
 }
