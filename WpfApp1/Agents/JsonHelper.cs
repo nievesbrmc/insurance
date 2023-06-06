@@ -7,6 +7,8 @@ using System.Net.Http.Json;
 using RestSharp;
 using System.Text.Json.Nodes;
 using System.Text.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace WpfApp1.Agents
 {
@@ -14,6 +16,22 @@ namespace WpfApp1.Agents
     {
         private const int TIMEOUT = 5;
         public enum JsonVerb { Select, Insert, Update, Delete }
+
+        public static async Task<Entity.TokenData> GetToken()
+        {
+            Entity.TokenData? tokenData = new Entity.TokenData();
+            var client = new RestClient();
+            var request = new RestRequest("https://oauth-authorization-api.us-e2.cloudhub.io/token", Method.Post);
+            request.AddHeader("client_id", "services-exp");
+            request.AddHeader("client_secret", "services-exp123");
+            request.AddHeader("grant_type", "CLIENT_CREDENTIALS");
+            var response = await client.ExecuteAsync(request).ConfigureAwait(false);
+            string? result =  response.Content;
+            tokenData = JsonConvert.DeserializeObject<Entity.TokenData>(result, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+            //Console.WriteLine(response.Content);
+            return tokenData;
+        }
+
         public static object get(Uri url, string token)
         {
             var client = new RestClient(url);
@@ -23,7 +41,7 @@ namespace WpfApp1.Agents
             var response = client.ExecuteGet(request);
 
             // deserialize json string response to JsonNode object
-            var data = JsonSerializer.Deserialize<JsonNode>(response.Content!)!;
+            var data = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(response.Content!)!;
             return data;
         }
         /// <summary>

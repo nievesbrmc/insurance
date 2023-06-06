@@ -14,27 +14,23 @@ namespace WpfApp1.Entity
         public int id { get; set; }
         public string valor { get; set; }
         public string descripcion { get; set; }
-        public RequiredDocument RequiredDocument { get; set; }
-        public string datosRequeridos { get; set; }
+        public RequiredDocument documentosRequeridos { get; set; }
+        public List<string> datosRequeridos { get; set; }
     }
     public class RequiredDocument
     {
-        public FisicalPerson FisicalPerson { get; set; }
-        public MoralPerson MoralPerson { get; set; }
+        public FisicalPerson personaFisica { get; set; }
+        public MoralPerson personaMoral { get; set; }
     }
     public class FisicalPerson
     {
-        public string DocumentsVehicle { get; set; }
-        public string DocumentInsured { get; set; }
-        public string DocumentQualitas { get; set; }
+        public string documentosVehiculo { get; set; }
+        public string documentosAsegurado { get; set; }
+        public string documentosQualitas { get; set; }
     }
 
-    public class MoralPerson
-    {
-        public string DocumentsVehicle { get; set; }
-        public string DocumentInsured { get; set; }
-        public string DocumentQualitas { get; set; }
-    }
+    public class MoralPerson:FisicalPerson
+    {}
     public class DocumentList
     {
         public string DocumentDescription { get; set; }
