@@ -2,6 +2,17 @@
 
 namespace WpfApp1.Entity
 {
+    public class EndorsementData
+    {
+        public int Id { get; set; }
+        public string Status { get; set; }
+        public string ColorStatus { get; set; }
+        public string DateRegister { get; set; }
+        public string Judgment { get; set; }
+        public DocumentData data { get; set; }
+        public string ButtonText { get; set; }
+    }
+
     public class EndorsementList
     {
         public string codigo { get; set; }
@@ -31,6 +42,7 @@ namespace WpfApp1.Entity
 
     public class MoralPerson:FisicalPerson
     {}
+
     public class DocumentList
     {
         public string DocumentDescription { get; set; }

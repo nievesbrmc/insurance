@@ -27,19 +27,36 @@
             <Label Content="Cliente: " x:Name="NameClient" Foreground="Gray" FontFamily="Arial" FontSize="25" FontWeight="UltraBlack"></Label>
         </StackPanel>
         <StackPanel Grid.Column="0" Width="Auto" Height="400" Grid.ColumnSpan="2" Margin="66,0,42,40" Grid.Row="3" Style="{StaticResource ResourceKey=StackPanelStyle}" Grid.RowSpan="2">
-            <ListView Width="981" Height="400">
-                <Grid Width="941" Height="400">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="90"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Button Grid.Column="0" HorizontalAlignment="Right" Margin="20" Grid.Row="0" x:Name="btnAddEndoso" Content="Agregar endoso" Style="{StaticResource ResourceKey=RoundButton}" Click="btnAddEndoso_Click"></Button>
-                    <Label Grid.Column="0" Grid.Row="1" Foreground="DarkBlue" FontFamily="Arial" FontSize="20" FontWeight="UltraBlack" HorizontalAlignment="Center" VerticalAlignment="Center" Content="no hay endosos registrados"></Label>
-                </Grid>
-            </ListView>
+            <Grid Width="981" Height="359">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" HorizontalAlignment="Left" Margin="782,20,0,20" Grid.Row="0" x:Name="btnAddEndoso" Content="Agregar endoso" Style="{StaticResource ResourceKey=RoundButton}" Click="btnAddEndoso_Click"></Button>
+                <StackPanel Grid.Column="0" Grid.Row="1" Width="981" Height="300">
+                    <ListView Width="981" x:Name="lvEndorsementList" Height="300" ItemsSource="{Binding EndorsementData}">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Información de endosos registrados">
+                                <GridViewColumn Header="Folio" DisplayMemberBinding="{Binding Path=Id}"></GridViewColumn>
+                                <GridViewColumn Header="Estatus Póliza" DisplayMemberBinding="{Binding Path=Status}"></GridViewColumn>
+                                <GridViewColumn Header="Fecha Registro" DisplayMemberBinding="{Binding Path=DateRegister}"></GridViewColumn>
+                                <GridViewColumn Header="Dictamen" DisplayMemberBinding="{Binding Path=Judgment}"></GridViewColumn>
+                                <GridViewColumn Header="Accion">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="btnView" Content="{Binding Path=ButtonText}" Width="200" Click="btnView_Click" Style="{StaticResource ResourceKey=RoundButton}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

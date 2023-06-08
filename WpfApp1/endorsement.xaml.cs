@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Entity;
 
 namespace WpfApp1
 {
@@ -24,6 +25,13 @@ namespace WpfApp1
         {
             InitializeComponent();
             NameClient.Content = "Cliente: " + getNameClient(clientId);
+
+            lvEndorsementList.ItemsSource = GetEndorsementList();
+        }
+
+        private IEnumerable<EndorsementData> GetEndorsementList()
+        {
+            return new BLL.EndorsementProcess().GetEndorsementList();
         }
 
         private static string getNameClient(string clientId)
@@ -34,6 +42,19 @@ namespace WpfApp1
         private void btnAddEndoso_Click(object sender, RoutedEventArgs e)
         {
             App.ParentCoppelWindows.FrameCoppelParent.Navigate(new NewEndorsement(""));
+        }
+
+        private void btnView_Click(object sender, RoutedEventArgs e)
+        {
+            var data = (Entity.EndorsementData)((Button)e.Source).DataContext;
+            if (data == null)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

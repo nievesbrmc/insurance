@@ -13,7 +13,63 @@ namespace WpfApp1.BLL
 {
     public class EndorsementProcess
     {
-        
+        public IEnumerable<EndorsementData> GetEndorsementList()
+        {
+            IEnumerable<EndorsementData> response = new List<EndorsementData>
+            {
+                new EndorsementData
+                {
+                    Id=349867,
+                    Status="Activo",
+                    DateRegister=DateTime.Now.ToString("dd-MM-yyyy"),
+                    Judgment="Inicio del trámite",
+                    ColorStatus="Green",
+                    data=new DocumentData
+                    {
+                        id=1,
+                        valor="ACTUALIZACION DE CORREO ELECTRÓNICO",
+                        datosRequeridos=new List<string>
+                        {
+                            "Correo"
+                        },
+                        documentosRequeridos=new RequiredDocument
+                        {
+                            personaFisica=new FisicalPerson
+                            {
+                                documentosAsegurado="correo@gmail.com"
+                            }
+                        }
+                    }
+                },
+                new EndorsementData
+                {
+                    Id=349898,
+                    Status="Cancelado",
+                    DateRegister=DateTime.Now.ToString("dd-MM-yyyy"),
+                    Judgment="Tramite rechazado",
+                    ColorStatus="Green",
+                    data=new DocumentData
+                    {
+                        id=2,
+                        valor="ACTUALIZACIÓN DE TELÉFONO",
+                        datosRequeridos=new List<string>
+                        {
+                            "Numero Telefono"
+                        },
+                        documentosRequeridos=new RequiredDocument
+                        {
+                            personaFisica=new FisicalPerson
+                            {
+                                documentosAsegurado="5585984875"
+                            }
+                        }
+                    }
+                }
+            };
+
+            response.ToList().ForEach(item => item.ButtonText = item.Status == "Activo" ? "Ver solicitud" : "Ver dictamen");
+            return response;
+        }
         public async Task<IEnumerable<Entity.DocumentType>> GetDocumentList()
         {
             List<Entity.DocumentType> documentsList = new List<Entity.DocumentType>();
