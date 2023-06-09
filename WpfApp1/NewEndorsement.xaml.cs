@@ -84,6 +84,18 @@ namespace WpfApp1
             if (document.FillValue)
             {
                 //muestra la imagen
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                string pathImage = path + @"\Image\inedemo.jpg";
+
+                BitmapImage image = new(new Uri(pathImage));
+                Window ImagePreview = new ImagePreview(image, true)
+                {
+                    WindowStartupLocation = WindowStartupLocation.Manual,
+                    Left = 0,
+                    Top = 0,
+                    Topmost = true
+                };
+                ImagePreview.Show();
             }
             else
             {
@@ -106,7 +118,7 @@ namespace WpfApp1
                     newFile = Helpers.GetFile(newFile);
                     file.CopyTo(newFile, true);
                     byte[] fileArray = Helpers.ConvertFileToArray(newFile);
-                    Window ImagePreview = new ImagePreview(image);
+                    Window ImagePreview = new ImagePreview(image, false);
                     ImagePreview.WindowStartupLocation = WindowStartupLocation.Manual;
                     ImagePreview.Left = 0;
                     ImagePreview.Top = 0;

@@ -28,7 +28,7 @@
         </StackPanel>
         <StackPanel Grid.Row="5" Style="{StaticResource ResourceKey=StackPanelStyle}" Margin="0,0,0,0" Width="600">
             <Button x:Name="btnRepeat" Content="Repetir captura" Style="{StaticResource ResourceKey=RoundButton}" Background="White" Foreground="DarkBlue" FontWeight="ExtraBlack"  Margin="60,0,0,0" Click="btnRepeat_Click"></Button>
-            <Button x:Name="btnOk" Content="Aceptar" Style="{StaticResource ResourceKey=RoundButton}" Margin="80,0,0,0" Click="btnOk_Click"></Button>
+            <Button x:Name="btnOk" Content="Aceptar"  Style="{StaticResource ResourceKey=RoundButton}" Margin="80,0,0,0" Click="btnOk_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

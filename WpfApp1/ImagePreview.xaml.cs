@@ -19,11 +19,16 @@ namespace WpfApp1
     /// </summary>
     public partial class ImagePreview : Window
     {
-        public ImagePreview(BitmapImage path)
+        public ImagePreview(BitmapImage path, bool ShowButton)
         {
             InitializeComponent();
-
             ImageUpload.Source = path;
+            if (ShowButton)
+            {
+                btnRepeat.Visibility = Visibility.Hidden;
+                btnOk.Content = "Cerrar";
+                btnOk.HorizontalAlignment = HorizontalAlignment.Center;
+            }
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
