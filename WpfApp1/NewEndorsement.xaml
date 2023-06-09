@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="640" d:DesignWidth="1099"
       Title="NewEndorsement">
-
+    
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -90,7 +90,7 @@
                         <ItemsControl x:Name="DocumentsList" ItemsSource="{Binding documentList}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="#BEBEBD" BorderThickness="1" Padding="15" Width="930" Margin="10" Height="Auto" CornerRadius="16" Background="#FFFFFF">
+                                    <Border BorderBrush="#BEBEBD" BorderThickness="1" Padding="15" Width="550" Margin="10" Height="150" CornerRadius="16" Background="#FFFFFF">
                                         <Border.Effect>
                                             <DropShadowEffect ShadowDepth="1"/>
                                         </Border.Effect>
@@ -105,34 +105,50 @@
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Height="Auto" Width="Auto" Margin="5">
-                                                            <CheckBox Content="{Binding DocumentDescription}" x:Name="ck0">
-                                                                <CheckBox.ToolTip>
-                                                                    <ToolTip Placement="Bottom">
-                                                                        <ToolTip.Template>
-                                                                            <ControlTemplate>
-                                                                                 <Image Source="/Image/helper.png" Width="60" Height="60" Margin="-190,-55,-395,0" MouseDown="Image_MouseDown">
-                                                                                    <Image.ToolTip>
-                                                                                        <ToolTip Placement="Bottom">
-                                                                                            <ToolTip.Template>
-                                                                                                <ControlTemplate>
-                                                                                                    <StackPanel>
-                                                                                                        <Label Content="{Binding ToolTip}"></Label>
-                                                                                                    </StackPanel>
-                                                                                                </ControlTemplate>
-                                                                                            </ToolTip.Template>
-                                                                                        </ToolTip>
-                                                                                    </Image.ToolTip>
-                                                                                </Image>
-                                                                            </ControlTemplate>
-                                                                        </ToolTip.Template>
-                                                                    </ToolTip>
-                                                                </CheckBox.ToolTip>
-                                                            </CheckBox>
-                                                        </TextBlock>
-                                                        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-                                                            <Button Grid.Column="0" HorizontalAlignment="Right" Margin="20" x:Name="btnAddEndoso" Content="Cargar documento" Style="{StaticResource ResourceKey=RoundButton}" Click="btnAddEndoso_Click" ></Button>
-                                                        </TextBlock>
+                                                        <Grid Grid.Column="0" Grid.Row="0" Width="550">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="400"></ColumnDefinition>
+                                                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                                                <ColumnDefinition Width="430"></ColumnDefinition>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="70"></RowDefinition>
+                                                                <RowDefinition></RowDefinition>
+                                                            </Grid.RowDefinitions>
+                                                            <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Height="30" Width="Auto" Margin="0,0,0,0">
+                                                                <CheckBox Content="{Binding DocumentDescription}" x:Name="ck0">
+                                                                    <CheckBox.ToolTip>
+                                                                        <ToolTip Placement="Bottom">
+                                                                            <ToolTip.Template>
+                                                                                <ControlTemplate>
+                                                                                    <Image Source="/Image/helper.png" Width="60" Height="60" Margin="-190,-55,-395,0" MouseDown="Image_MouseDown">
+                                                                                        <Image.ToolTip>
+                                                                                            <ToolTip Placement="Bottom">
+                                                                                                <ToolTip.Template>
+                                                                                                    <ControlTemplate>
+                                                                                                        <StackPanel>
+                                                                                                            <Label Content="{Binding ToolTip}"></Label>
+                                                                                                        </StackPanel>
+                                                                                                    </ControlTemplate>
+                                                                                                </ToolTip.Template>
+                                                                                            </ToolTip>
+                                                                                        </Image.ToolTip>
+                                                                                    </Image>
+                                                                                </ControlTemplate>
+                                                                            </ToolTip.Template>
+                                                                        </ToolTip>
+                                                                    </CheckBox.ToolTip>
+                                                                </CheckBox>
+                                                            </StackPanel>
+
+                                                            <StackPanel Grid.Column="0" Grid.Row="1" Style="{StaticResource ResourceKey=StackPanelStyle}" Width="300" Visibility="{Binding Path=TextInput}" Margin="15,-25,60,25" >
+                                                                <TextBox  Style="{StaticResource ResourceKey=TextBoxStyle}"  Text="{Binding Path=Value}" x:Name="txtData" ToolTip="Ingrese el valor" Height="50" Width="300" Margin="-25,0,0,0"></TextBox>
+                                                            </StackPanel>
+
+                                                            <TextBlock Grid.Column="2" Grid.Row="0"  Margin="-250,-20,0,0" Visibility="{Binding Path=BtnUpload}">
+                                                            <Button Grid.Column="0" HorizontalAlignment="Right" Margin="20" x:Name="btnAddEndoso" Content="{Binding Path=BtnText}" Style="{StaticResource ResourceKey=RoundButton}" Click="btnAddEndoso_Click"></Button>
+                                                            </TextBlock>
+                                                        </Grid>
                                                     </Grid>
                                                 </StackPanel>
                                             </Border>
@@ -147,7 +163,7 @@
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
                     </StackPanel>
-                    <Button HorizontalAlignment="Right" Margin="20" x:Name="btnAceptar" Content="Guardar" Style="{StaticResource ResourceKey=RoundButton}"></Button>
+                    <Button HorizontalAlignment="Center" Margin="20" x:Name="btnAceptar" Content="Guardar" Style="{StaticResource ResourceKey=RoundButton}"></Button>
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>

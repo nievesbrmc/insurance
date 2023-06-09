@@ -21,11 +21,12 @@ namespace WpfApp1
     /// </summary>
     public partial class endorsement : Page
     {
+        string ClientIdentifier = string.Empty;
         public endorsement(string clientId)
         {
             InitializeComponent();
+            ClientIdentifier = clientId;
             NameClient.Content = "Cliente: " + getNameClient(clientId);
-
             lvEndorsementList.ItemsSource = GetEndorsementList();
         }
 
@@ -41,20 +42,13 @@ namespace WpfApp1
 
         private void btnAddEndoso_Click(object sender, RoutedEventArgs e)
         {
-            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new NewEndorsement(""));
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new NewEndorsement("", null));
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
-            var data = (Entity.EndorsementData)((Button)e.Source).DataContext;
-            if (data == null)
-            {
-
-            }
-            else
-            {
-
-            }
+            var data = (EndorsementData)((Button)e.Source).DataContext;
+            App.ParentCoppelWindows.FrameCoppelParent.Navigate(new NewEndorsement(ClientIdentifier, data));
         }
     }
 }

@@ -47,6 +47,12 @@ namespace WpfApp1.Entity
     {
         public string DocumentDescription { get; set; }
         public string ToolTip { get; set; }
+        public string Value { get; set; }
+        public byte[] DocumentValue { get; set; }
+        public bool FillValue { get; set; }
+        public string TextInput { get; set; }
+        public string BtnUpload { get; set; }
+        public string BtnText { get; set; }
     }
     public class DocumentType
     {

@@ -64,19 +64,62 @@ namespace WpfApp1.BLL
                             }
                         }
                     }
+                },
+                new EndorsementData
+                {
+                    Id=3498999,
+                    Status="Cancelado",
+                    DateRegister=DateTime.Now.ToString("dd-MM-yyyy"),
+                    Judgment="Tramite rechazado",
+                    ColorStatus="Green",
+                    data=new DocumentData
+                    {
+                        id=4,
+                        valor="CANCELACIÓN DE LA POLIZA",
+                        datosRequeridos=new List<string>
+                        {
+                            "Carta solicitud del cliente",
+                            "Identificacion oficial"
+                        },
+                        documentosRequeridos=new RequiredDocument
+                        {
+                            personaFisica=new FisicalPerson
+                            {
+                                documentosAsegurado=""
+                            }
+                        }
+                    }
                 }
             };
 
             response.ToList().ForEach(item => item.ButtonText = item.Status == "Activo" ? "Ver solicitud" : "Ver dictamen");
             return response;
         }
-        public async Task<IEnumerable<Entity.DocumentType>> GetDocumentList()
+
+        public async Task<IEnumerable<DocumentType>> GetDocumentList(EndorsementData? data)
         {
-            List<Entity.DocumentType> documentsList = new List<Entity.DocumentType>();
-            Entity.EndorsementList endorsementList = await getEndorsment().ConfigureAwait(false);
-            var documents = endorsementList.data;
+            List<DocumentType> documentsList = new();
+            IEnumerable<DocumentData> documents;
+            if (data==null)
+            {
+                EndorsementList endorsementList = await getEndorsment().ConfigureAwait(false);
+                documents = endorsementList.data;
+            }
+            else
+            {
+                documents = new List<DocumentData>
+                {
+                    new DocumentData
+                    {
+                       id= data.data.id,
+                       descripcion=data.data.valor,
+                       valor=data.data.valor
+                    }
+                };
+            }
+
             documentsList = (from lst in documents
-                             select new Entity.DocumentType
+                             select new DocumentType
                              {
                                  Description = lst.valor,
                                  Id = lst.id
@@ -84,16 +127,16 @@ namespace WpfApp1.BLL
             return documentsList;
         }
 
-        public static async Task<IEnumerable<Entity.PolicyData>> GetPolicyList(int clientId)
+        public static async Task<IEnumerable<PolicyData>> GetPolicyList(int clientId)
         {
-            List<Entity.PolicyData> response = new List<Entity.PolicyData>
+            List<PolicyData> response = new List<PolicyData>
             {
-                new Entity.PolicyData
+                new PolicyData
                 {
                     Id=1,
                     Description="Póliza uno"
                 },
-                new Entity.PolicyData
+                new PolicyData
                 {
                     Id=2,
                     Description="Póliza dos"
@@ -102,18 +145,26 @@ namespace WpfApp1.BLL
             return response;
         }
 
-        public async Task<IEnumerable<Entity.DocumentList>> getEndorsment(bool fisicalPerson, int idDocument)
+        public async Task<IEnumerable<DocumentList>> getEndorsment(bool fisicalPerson, int? idDocument, EndorsementData? data)
         {
-            List<Entity.DocumentList> response = new List<Entity.DocumentList>();
+            List<DocumentList> response = new();
+            List<string> documents = new();
             try
             {
-                Entity.EndorsementList endorsementList = await getEndorsment().ConfigureAwait(false);
-
-                if (fisicalPerson)
+                if (data != null)
                 {
-                    var documentData = endorsementList.data.ToList().FirstOrDefault(x => x.id == idDocument);
-                    var documents = documentData.datosRequeridos;
-                    response = getDocuments(documents);
+                    documents = data.data.datosRequeridos;
+                    response = getDocuments(documents, true, data.data.documentosRequeridos, data.data.id);
+                }
+                else
+                {
+                    EndorsementList endorsementList = await getEndorsment().ConfigureAwait(false);
+                    if (fisicalPerson)
+                    {
+                        var documentData = endorsementList.data.ToList().FirstOrDefault(x => x.id == idDocument);
+                        documents = documentData.datosRequeridos;
+                        response = getDocuments(documents, false, null, documentData.id);
+                    }
                 }
             }
             catch (Exception ex)
@@ -123,24 +174,45 @@ namespace WpfApp1.BLL
             return response;
         }
         
-        private static List<Entity.DocumentList> getDocuments(List<string> documents)
+        private static List<DocumentList> getDocuments(List<string> documents, bool fillValue, RequiredDocument? documentValue, int documentTypeId)
         {
-            List<Entity.DocumentList> response = new List<Entity.DocumentList>();
+            List<DocumentList> response = new();
             foreach (var item in documents)
             {
-                response.Add(new Entity.DocumentList
+                response.Add(new DocumentList
                 {
                     DocumentDescription = item,
-                    ToolTip = "Descripción"
+                    ToolTip = "Descripción",
+                    FillValue = fillValue,
+                    Value = documentValue == null ? String.Empty : documentValue.personaFisica.documentosAsegurado,
+                    TextInput = getFormatItem(documentTypeId) ? "Visible" : "Hidden",
+                    BtnUpload = getFormatItem(documentTypeId) ? "Hidden" : "Visible",
+                    BtnText = fillValue ? "Ver" : "Cargar documento",
                 });
             }
             return response;
         }
         
-        private async Task<Entity.EndorsementList> getEndorsment()
+        private static bool getFormatItem(int value)
         {
-            Entity.EndorsementList endorsementList = new Entity.EndorsementList();
-            Entity.TokenData token = await Agents.JsonHelper.GetToken().ConfigureAwait(false);
+            Dictionary<int, bool> data = new Dictionary<int, bool>();
+            data.Add(1, true);
+            data.Add(2, true);
+            data.Add(3, true);
+            data.Add(4, !true);
+            data.Add(5, true);
+            data.Add(6, !true);
+            data.Add(7, !true);
+            data.Add(8, !true);
+            data.Add(9, !true);
+            data.Add(10, !true);
+            data.Add(11, !true);
+            return data[value];
+        }
+        private async Task<EndorsementList> getEndorsment()
+        {
+            EndorsementList endorsementList = new EndorsementList();
+            TokenData token = await Agents.JsonHelper.GetToken().ConfigureAwait(false);
             Uri api = new Uri("https://service-coppel-pisys-inter-exp-api.us-e2.cloudhub.io/api/catalogo/endosos");
             try
             {
@@ -149,7 +221,7 @@ namespace WpfApp1.BLL
                 if (response.IsSuccessStatusCode & response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var data = response.Content.ReadAsStringAsync();
-                    endorsementList = JsonConvert.DeserializeObject<Entity.EndorsementList>(await data.ConfigureAwait(false), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }); 
+                    endorsementList = JsonConvert.DeserializeObject<EndorsementList>(await data.ConfigureAwait(false), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }); 
                 }
             }
             catch (Exception ex)
