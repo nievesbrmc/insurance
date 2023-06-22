@@ -9,13 +9,14 @@ using System.Text.Json.Nodes;
 using System.Text.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using WpfApp1.Entity;
 
 namespace WpfApp1.Agents
 {
     public class JsonHelper
     {
         private const int TIMEOUT = 5;
-        public enum JsonVerb { Select, Insert, Update, Delete }
+        public enum JsonVerb { Select, Insert, Update, Delete, PATCH }
 
         public static async Task<Entity.TokenData> GetToken()
         {
@@ -29,6 +30,19 @@ namespace WpfApp1.Agents
             string? result =  response.Content;
             tokenData = JsonConvert.DeserializeObject<Entity.TokenData>(result, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
             //Console.WriteLine(response.Content);
+            return tokenData;
+        }
+
+        public static async Task<TokenCanceledService> GetCanceledToken()
+        {
+            TokenCanceledService? tokenData = new TokenCanceledService();
+            var client = new RestClient();
+            var request = new RestRequest("http://vps-afca919a.vps.ovh.ca:443/login", Method.Post);
+            request.AddParameter("username", "tonylujan7");
+            request.AddParameter("password", "tonypwd");
+            var response = await client.ExecuteAsync(request).ConfigureAwait(false);
+            string? result = response.Content;
+            tokenData = JsonConvert.DeserializeObject<TokenCanceledService>(result, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
             return tokenData;
         }
 
@@ -93,7 +107,9 @@ namespace WpfApp1.Agents
                     case JsonVerb.Insert:
                         return await client.PostAsync(urlWebApi, httpContent).ConfigureAwait(false);
                     case JsonVerb.Update:
-                        return await client.PutAsync(urlWebApi, httpContent).ConfigureAwait(false);
+                        return await client.PutAsync(urlWebApi, httpContent).ConfigureAwait(false);                        
+                    case JsonVerb.PATCH:
+                        return await client.PatchAsync(urlWebApi, httpContent).ConfigureAwait(false);
                     default:
                         return await client.DeleteAsync(path).ConfigureAwait(false);
                 }
